@@ -34,6 +34,5 @@ jobs:
     name: Setting stuff up
     runs-on: ubuntu-latest
     steps:
-      - name: Set environment variables
-        id: setup-env
-        run: echo "${{ fromJson(env.ENV_CONFIGS) }}"
+      - id: setup-env
+        run: echo '${{ fromJson(env.ENV_CONFIGS) }}'
