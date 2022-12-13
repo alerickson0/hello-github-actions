@@ -1,5 +1,5 @@
 name: A workflow for my Hello World file
-on: push
+# on: push # Disabling for now because I don't want to keep triggering this action
 jobs:
   build:
     name: Hello world action
