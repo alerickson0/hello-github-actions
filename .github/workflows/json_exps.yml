@@ -14,7 +14,7 @@ on:
 
 env:
   ENV_CONFIGS: >
-    [
+    {
       "test1": {
         "workload": "workload1"
         "message": "This is environment test1!"
@@ -27,7 +27,7 @@ env:
         "workload": "workload_xyz"
         "message": "This is environment workload_xyz!"
       }
-    ]
+    }
 
 jobs:
   set_env_vars:
@@ -35,4 +35,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: setup-env
-        run: echo '${{ fromJson(env.ENV_CONFIGS.[0]) }}'
+        run: echo '${{ env.ENV_CONFIGS }}'
