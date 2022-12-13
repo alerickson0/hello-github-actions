@@ -36,5 +36,4 @@ jobs:
     steps:
       - name: Set environment variables
         id: setup_env
-        run: |
-          echo "${{ fromJson(env.ENV_CONFIGS) }}"
+        run: echo "${{ fromJson(env.ENV_CONFIGS) }}"
