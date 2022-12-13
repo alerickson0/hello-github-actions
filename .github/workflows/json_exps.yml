@@ -35,4 +35,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: setup-env
-        run: echo '${{ env.ENV_CONFIGS }}'
+        run: echo 'fromJson(${{ env.ENV_CONFIGS }})'
