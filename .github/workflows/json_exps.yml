@@ -46,4 +46,4 @@ jobs:
         shell: bash
         run: |
           echo '${{ fromJson( env.ENV_CONFIGS ) }}'
-          jq '.${{github.events.inputs.workload}}.workload' '${{ fromJson( env.ENV_CONFIGS ) }}' < echo
+          jq '.${{github.event.inputs.workload}}.workload' '${{ fromJson( env.ENV_CONFIGS ) }}' < echo
