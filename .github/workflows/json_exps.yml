@@ -45,6 +45,6 @@ jobs:
       - id: env-outpt-fromJSON
         shell: bash
         run: |
-          my_env=${{ env.ENV_CONFIGS }}
+          var_env='${{ env.ENV_CONFIGS }}'
           echo '${{ fromJson( env.ENV_CONFIGS ) }}'
-          echo '${{ fromJson( my_env ) }}'
+          echo '${{ fromJson( var_env ) }}'
