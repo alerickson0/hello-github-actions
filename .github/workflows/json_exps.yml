@@ -45,6 +45,5 @@ jobs:
       - id: env-outpt-fromJSON
         shell: bash
         run: |
-          echo "var1=${{ env.ENV_CONFIGS }}" >> $GITHUB_ENV
           echo '${{ fromJson( env.ENV_CONFIGS ) }}'
-          echo '${{ fromJson( env.var1 ) }}'
+          echo '${{ fromJson( env.ENV_CONFIGS ).test1.workload }}'
