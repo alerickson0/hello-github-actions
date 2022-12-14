@@ -33,6 +33,12 @@ jobs:
   set_env_vars:
     name: Setting stuff up
     runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 6
+      matrix: ${{ fromJson(env.ENV_CONFIGS) }}
+      fail-fast: false
     steps:
-      - id: setup-env
-        run: echo '${{ fromJson( env.ENV_CONFIGS ).test1 }}'
+      - id: read-output
+        run: echo "workload = ${{ matrix.env.ENV_CONFIGS.workload }}"
+      #- id: setup-env
+        #run: echo '${{ fromJson( env.ENV_CONFIGS ).test1 }}'
