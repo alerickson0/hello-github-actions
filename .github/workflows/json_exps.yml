@@ -16,15 +16,15 @@ env:
   ENV_CONFIGS: >
     {
       "test1": {
-        "workload": "workload1"
+        "workload": "workload1",
         "message": "This is environment test1!"
       },
       "test2": {
-        "workload": "workload_bc"
+        "workload": "workload_bc",
         "message": "This is environment workload_bc!"
       },
       "test3": {
-        "workload": "workload_xyz"
+        "workload": "workload_xyz",
         "message": "This is environment workload_xyz!"
       }
     }
@@ -35,4 +35,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: setup-env
-        run: echo '${{ fromJson( env.ENV_CONFIGS.["test1"] ) }}'
+        run: echo '${{ fromJson( env.ENV_CONFIGS ) }}'
