@@ -43,4 +43,8 @@ jobs:
       - id: env-outpt
         run: echo '${{ env.ENV_CONFIGS }}'
       - id: env-outpt-fromJSON
-        run: echo '${{ fromJson( env.ENV_CONFIGS ) }}'
+        run: |
+          my_env=${{ env.ENV_CONFIGS }}
+          echo '${{ fromJson( env.ENV_CONFIGS ) }}'
+          echo '${{ fromJson( ENV_CONFIGS ) }}'
+          echo '${{ fromJson( my_env ) }}'
