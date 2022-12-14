@@ -46,5 +46,4 @@ jobs:
         run: |
           my_env=${{ env.ENV_CONFIGS }}
           echo '${{ fromJson( env.ENV_CONFIGS ) }}'
-          echo '${{ fromJson( ENV_CONFIGS ) }}'
           echo '${{ fromJson( my_env ) }}'
