@@ -48,5 +48,6 @@ jobs:
           #JQ_STRING='.${{github.event.inputs.workload}}.workload'
           #echo ${JQ_STRING}
           echo '${{ fromJson( env.ENV_CONFIGS ) }}'
-          echo '${{ fromJson( env.ENV_CONFIGS ) }}' | jq '.${{github.event.inputs.workload}}.workload'
+          #echo '${{ fromJson( env.ENV_CONFIGS ) }}' | jq '.${{github.event.inputs.workload}}.workload'
+          jq '.' <<<"${{ env.ENV_CONFIGS }}"
           #echo '${{ fromJson( env.ENV_CONFIGS ) }}' | jq ${JQ_STRING}
