@@ -46,5 +46,4 @@ jobs:
         shell: bash
         run: |
           JQ_STRING=".${{github.event.inputs.workload}}.workload"
-          echo '${{ fromJson( env.ENV_CONFIGS ) }}'
           echo '${{ fromJson( env.ENV_CONFIGS ) }}' | jq $JQ_STRING
