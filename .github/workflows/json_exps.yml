@@ -45,6 +45,8 @@ jobs:
       - id: env-outpt-fromJSON
         shell: bash
         run: |
-          JQ_STRING='.${{github.event.inputs.workload}}.workload'
-          echo ${JQ_STRING}
-          jq ${JQ_STRING} '${{ fromJson( env.ENV_CONFIGS ) }}'
+          #JQ_STRING='.${{github.event.inputs.workload}}.workload'
+          #echo ${JQ_STRING}
+          echo '${{ fromJson( env.ENV_CONFIGS ) }}'
+          echo '${{ fromJson( env.ENV_CONFIGS ) }}' | jq '.${{github.event.inputs.workload}}.workload'
+          #echo '${{ fromJson( env.ENV_CONFIGS ) }}' | jq ${JQ_STRING}
