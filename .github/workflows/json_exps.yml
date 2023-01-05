@@ -14,20 +14,32 @@ on:
 
 env:
   ENV_CONFIGS: >
-    [
-      "test1": {
-        "workload": "workload1"
-        "message": "This is environment test1!"
-      },
-      "test2": {
-        "workload": "workload_bc"
-        "message": "This is environment workload_bc!"
-      },
-      "test3": {
-        "workload": "workload_xyz"
-        "message": "This is environment workload_xyz!"
-      }
-    ]
+    {
+      "test1": "This is environment test1!",
+      "test2": "This is environment workload_bc!",
+      "test3": "This is environment workload_xyz!"
+    }
+
+jobs:
+  set_env_vars:
+    name: Setting stuff up
+    runs-on: ubuntu-latest
+#    strategy:
+#      max-parallel: 6
+#      matrix: ${{ fromJson(env.ENV_CONFIGS) }}
+#      fail-fast: false
+    steps:
+#      - id: read-output
+#        run: echo "workload = ${{ matrix.env.ENV_CONFIGS.workload }}"
+      - id: env-outpt
+        run: |
+          echo '${{ env.ENV_CONFIGS }}'
+          echo "$ENV_CONFIGS"
+      - id: env-outpt-fromJSON
+        shell: bash
+        run: |
+          echo "${{ fromJson( env.ENV_CONFIGS ).github.event.inputs.workload }}"
+          echo "${{ fromJson( env.ENV_CONFIGS ) }}" | jq '.${{github.event.inputs.workload}}'
 
 jobs:
   set_env_vars:
