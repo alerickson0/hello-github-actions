@@ -32,15 +32,6 @@ jobs:
 #      - id: read-output
 #        run: echo "workload = ${{ matrix.env.ENV_CONFIGS.workload }}"
       - id: env-outpt
-        run: echo '${{ env.ENV_CONFIGS }}'
-      - id: env-outpt-fromJSON
-        shell: bash
         run: |
-          #JQ_STRING='.${{github.event.inputs.workload}}.workload'
-          #echo ${JQ_STRING}
-          #set -x
-          #echo '${{ fromJson( env.ENV_CONFIGS ) }}'
-          #echo '${{ fromJson( env.ENV_CONFIGS ) }}' | jq '.${{github.event.inputs.workload}}.workload'
-          #jq -n '$input.' --argjson input '${{env.ENV_CONFIGS}}'
-          echo $ENV_CONFIGS
-          #echo "${{ fromJson( ENV_CONFIGS ).github.event.inputs.workload }}"
+          echo '${{ env.ENV_CONFIGS }}'
+          echo "$ENV_CONFIGS"       
