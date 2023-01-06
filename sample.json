@@ -1,0 +1,14 @@
+{
+    "test1": {
+      "workload": "workload1",
+      "message": "This is environment test1!"
+    },
+    "test2": {
+      "workload": "workload_bc",
+      "message": "This is environment workload_bc!"
+    },
+    "test3": {
+      "workload": "workload_xyz",
+      "message": "This is environment workload_xyz!"
+    }
+}

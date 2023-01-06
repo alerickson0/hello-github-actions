@@ -1,0 +1,40 @@
+name: "Messing with JSON"
+
+on:
+  workflow_dispatch:
+    inputs:
+      workload:
+        required: true
+        type: choice
+        description: "The workload to use"
+        options:
+          - test1
+          - test2
+          - test3
+
+env:
+  ENV_CONFIGS: >
+    {
+      "test1": {
+        "workload": "workload1",
+        "message": "This is environment test1!"
+      },
+      "test2": {
+        "workload": "workload_bc",
+        "message": "This is environment workload_bc!"
+      },
+      "test3": {
+        "workload": "workload_xyz",
+        "message": "This is environment workload_xyz!"
+      }
+    }
+
+jobs:
+  set_env_vars:
+    name: Setting stuff up
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set environment variables
+        id: setup_env
+        run: |
+          echo "${{ fromJson(env.ENV_CONFIGS) }}"
