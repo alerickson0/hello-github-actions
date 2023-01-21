@@ -1,4 +1,4 @@
-name: "Messing with JSON"
+name: "Get macOS environment variables"
 
 on:
   workflow_dispatch:
