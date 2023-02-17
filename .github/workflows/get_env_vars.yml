@@ -22,3 +22,9 @@ jobs:
         run: |
           echo "JAVA_HOME_17_X64=$JAVA_HOME_17_X64"
           echo "CHROMEWEBDRIVER=$CHROMEWEBDRIVER"
+      - name: Check Docker and Colima
+        id: sed_present
+        run: |
+          colima start
+          brew install docker
+          docker --version
