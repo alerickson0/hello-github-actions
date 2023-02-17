@@ -24,7 +24,8 @@ jobs:
           echo "CHROMEWEBDRIVER=$CHROMEWEBDRIVER"
       - name: Check Docker and Colima
         id: sed_present
+        shell: bash
         run: |
-          colima start
           brew install docker
+          colima start
           docker --version
